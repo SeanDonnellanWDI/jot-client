@@ -17,35 +17,42 @@ const clearFormFields = function () {
   document.getElementById(`changePasswordForm`).reset()
 }
 
-// organizational gap
+// Show/hide Jot Section
+
+const revealJotSection = function () {
+  const jotSection = document.getElementById(`jotSection`)
+  jotSection.classList.remove(`hidden`)
+}
+
+const hideJotSection = function () {
+  const jotSection = document.getElementById(`jotSection`)
+  jotSection.classList.add(`hidden`)
+}
+
+// Show/hide user auth EXTERNAL
 
 const revealChangePassSignOut = function () {
-  const changePassSection = document.getElementById(`changePassSection`)
-  changePassSection.classList.remove(`hidden`)
-  const signOutSection = document.getElementById(`signOutSection`)
-  signOutSection.classList.remove(`hidden`)
+  revealJotSection()
+  const userAuthInternal = document.getElementById(`userAuthInternal`)
+  userAuthInternal.classList.remove(`hidden`)
 }
 
 const hideChangePassSignOut = function () {
-  const changePassSection = document.getElementById(`changePassSection`)
-  changePassSection.classList.add(`hidden`)
-  const signOutSection = document.getElementById(`signOutSection`)
-  signOutSection.classList.add(`hidden`)
+  const userAuthInternal = document.getElementById(`userAuthInternal`)
+  userAuthInternal.classList.add(`hidden`)
 }
 
+// Show/hide user auth INTERNAL
+
 const revealSignUpSignIn = function () {
-  const signUpSection = document.getElementById(`signUpSection`)
-  signUpSection.classList.remove(`hidden`)
-  const signInSection = document.getElementById(`signInSection`)
-  signInSection.classList.remove(`hidden`)
-  delete store.user
+  hideJotSection()
+  const userAuthExternal = document.getElementById(`userAuthExternal`)
+  userAuthExternal.classList.remove(`hidden`)
 }
 
 const hideSignUpSignIn = function () {
-  const signUpSection = document.getElementById(`signUpSection`)
-  signUpSection.classList.add(`hidden`)
-  const signInSection = document.getElementById(`signInSection`)
-  signInSection.classList.add(`hidden`)
+  const userAuthExternal = document.getElementById(`userAuthExternal`)
+  userAuthExternal.classList.add(`hidden`)
 }
 
 // organizational gap
@@ -105,6 +112,7 @@ const signOutSuccess = function () {
   clearFormFields()
   hideChangePassSignOut()
   revealSignUpSignIn()
+  delete store.user
 }
 
 const signOutError = function (error) {

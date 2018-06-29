@@ -11,9 +11,11 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
+    <body class="container">
       <h1>Jot</h1>
-      <div class="row user-auth user-auth-external">
+      <!-- External User Authentication -->
+      <div class="row user-auth user-auth-external" id="userAuthExternal">
+        <!-- Heading -->
         <div class="col-xs-12">
           <h2>User Authentication Forms</h2>
         </div>
@@ -37,7 +39,6 @@
           </form>
           <div class="col-xs-12" id="signUpEmptyDiv"></div>
         </div>
-        <hr>
         <!-- Sign In -->
         <div class="col-xs-12 col-sm-6 col-md-3" id="signInSection">
           <h3>Sign In</h3>
@@ -56,9 +57,14 @@
           <div class="col-xs-12" id="signInEmptyDiv"></div>
         </div>
       </div>
-      <div class="row user-auth user-auth-internal">
+      <!-- Internal User Authentication -->
+      <div class="row user-auth user-auth-internal hidden" id="userAuthInternal">
+        <!-- Heading -->
+        <div class="col-xs-12">
+          <h2>User Authentication Forms</h2>
+        </div>
         <!-- Change Password -->
-        <div class="col-xs-12 col-sm-6 col-md-3 hidden" id="changePassSection">
+        <div class="col-xs-12 col-sm-6 col-md-3" id="changePassSection">
           <h3>Change Password</h3>
           <form id="changePasswordForm">
             <div class="form-group">
@@ -75,7 +81,7 @@
           <div class="col-xs-12" id="changePasswordEmptyDiv"></div>
         </div>
         <!-- Sign Out -->
-        <div class="col-xs-12 col-sm-6 col-md-3 hidden" id="signOutSection">
+        <div class="col-xs-12 col-sm-6 col-md-3" id="signOutSection">
           <h3>Sign Out</h3>
           <form id="signOutForm">
             <div class="form-group">
@@ -83,6 +89,29 @@
             </div>
           </form>
           <div class="col-xs-12" id="signOutEmptyDiv"></div>
+        </div>
+      </div>
+      <!-- Jot Forms -->
+      <div class="row jot-section hidden" id="jotSection">
+        <div class="col-xs-12">
+          <h2>New Jot</h2>
+        </div>
+        <!-- New Jot -->
+        <div class="col-xs-12 col-sm-6 col-md-3" id="jotForm">
+          <h3>New Jot</h3>
+          <form id="createNewJot">
+            <div class="form-group">
+              <!-- New Jot Name Input -->
+              <label for="newJotName">Jot Name</label>
+              <input type="text" class="form-control" id="newJotName" name="jot[name]" placeholder="Jot Name">
+              <!-- New Jot Content Input -->
+              <label for="newJotContent">Jot Content</label>
+              <input type="text" class="form-control" id="newJotContent" name="jot[content]" placeholder="Got a thought? Write a jot!">
+              <!-- Sign Up Submit -->
+              <button type="submit">Create Jot</button>
+            </div>
+          </form>
+          <div class="col-xs-12" id="newJotEmptyDiv"></div>
         </div>
       </div>
     </body>
