@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Jot</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,78 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Jot</h1>
+      <div class="row user-auth user-auth-external">
+        <div class="col-xs-12">
+          <h2>User Authentication Forms</h2>
+        </div>
+        <!-- Sign up -->
+        <div class="col-xs-12 col-sm-6 col-md-3" id="signUpSection">
+          <h3>Sign Up</h3>
+          <form id="signUpForm">
+            <div class="form-group">
+              <!-- Sign Up Email Input -->
+              <label for="signUpEmailInput">Email address</label>
+              <input type="email" class="form-control" id="signUpEmailInput" name="credentials[email]" placeholder="Email">
+              <!-- Sign Up Password Input -->
+              <label for="signUpPassword">Password</label>
+              <input type="password" class="form-control" id="signUpPassword" name="credentials[password]" placeholder="Password">
+              <!-- Sign Up Confirm Password Input -->
+              <label for="signUpPasswordConfirm">Confirm Password</label>
+              <input type="password" class="form-control" id="signUpPasswordConfirm" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <!-- Sign Up Submit -->
+              <button type="submit">Sign Up</button>
+            </div>
+          </form>
+          <div class="col-xs-12" id="signUpEmptyDiv"></div>
+        </div>
+        <hr>
+        <!-- Sign In -->
+        <div class="col-xs-12 col-sm-6 col-md-3" id="signInSection">
+          <h3>Sign In</h3>
+          <form id="signInForm">
+            <div class="form-group">
+              <!-- Sign In Email Input -->
+              <label for="signInEmailInput">Email address</label>
+              <input type="email" class="form-control" id="signInEmailInput" name="credentials[email]" placeholder="Email">
+              <!-- Sign In Password Input -->
+              <label for="signInPassword">Password</label>
+              <input type="password" class="form-control" id="signInPassword" name="credentials[password]" placeholder="Password">
+              <!-- Sign In Submit -->
+              <button type="submit">Sign In</button>
+            </div>
+          </form>
+          <div class="col-xs-12" id="signInEmptyDiv"></div>
+        </div>
+      </div>
+      <div class="row user-auth user-auth-internal">
+        <!-- Change Password -->
+        <div class="col-xs-12 col-sm-6 col-md-3 hidden" id="changePassSection">
+          <h3>Change Password</h3>
+          <form id="changePasswordForm">
+            <div class="form-group">
+              <!-- Change Password Old Input -->
+              <label for="changePasswordOld">Old Password</label>
+              <input type="password" class="form-control" id="changePasswordOld" name="passwords[old]" placeholder="Old Password">
+              <!-- Change Password New Input -->
+              <label for="changePasswordNew">New Password</label>
+              <input type="password" class="form-control" id="changePasswordNew" name="passwords[new]" placeholder="New Password">
+              <!-- Change Password Submit -->
+              <button type="submit">Change Password</button>
+            </div>
+          </form>
+          <div class="col-xs-12" id="changePasswordEmptyDiv"></div>
+        </div>
+        <!-- Sign Out -->
+        <div class="col-xs-12 col-sm-6 col-md-3 hidden" id="signOutSection">
+          <h3>Sign Out</h3>
+          <form id="signOutForm">
+            <div class="form-group">
+              <button id="signOutBtn" type="submit">Sign Out</button>
+            </div>
+          </form>
+          <div class="col-xs-12" id="signOutEmptyDiv"></div>
+        </div>
+      </div>
     </body>
 </html>
