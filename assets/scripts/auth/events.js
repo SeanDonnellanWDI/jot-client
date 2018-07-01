@@ -35,9 +35,13 @@ const onSignOut = function (event) {
     .catch(authUi.signOutError)
 }
 
+const addHandlers = () => {
+  $('#signUpForm').on('submit', onSignUp)
+  $('#signInForm').on('submit', onSignIn)
+  $('#changePasswordForm').on('submit', onChangePassword)
+  $('#signOutForm').on('submit', onSignOut)
+}
+
 module.exports = {
-  onSignUp,
-  onSignIn,
-  onChangePassword,
-  onSignOut
+  addHandlers
 }

@@ -1,10 +1,10 @@
 'use strict'
 
-const getFormFields = require(`../../../lib/get-form-fields`)
-const jotApi = require(`./api`)
-const jotUi = require(`./ui`)
+const getFormFields = require('../../../lib/get-form-fields')
+const jotApi = require('./api')
+const jotUi = require('./ui')
 
-const onCreateJot = function (event) {
+const onCreateJot = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
   jotApi.createJot(data)
@@ -12,32 +12,18 @@ const onCreateJot = function (event) {
     .catch(jotUi.createJotError)
 }
 
-// const onSignIn = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   jotApi.signIn(data)
-//     .then(jotUi.signInSuccess)
-//     .catch(jotUi.signInError)
-// }
-//
-// const onChangePassword = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   jotApi.changePassword(data)
-//     .then(jotUi.changePasswordSuccess)
-//     .catch(jotUi.changePasswordError)
-// }
-//
-// const onSignOut = function (event) {
-//   event.preventDefault()
-//   jotApi.signOut()
-//     .then(jotUi.signOutSuccess)
-//     .catch(jotUi.signOutError)
-// }
+const onIndexJots = (event) => {
+  event.preventDefault()
+  jotApi.indexJots()
+    .then(jotUi.indexJotsSuccess)
+    .catch(jotUi.indexJotsError)
+}
+
+const addHandlers = () => {
+  $('#jotForm').on('submit', onCreateJot)
+  $('#indexJotsButton').on('click', onIndexJots)
+}
 
 module.exports = {
-  onCreateJot
-  // onSignIn,
-  // onChangePassword,
-  // onSignOut
+  addHandlers
 }

@@ -1,0 +1,36 @@
+{{#each jots as |jot|}}
+  {{log jot}}
+  <li class="row singular-jot" data-id="{{jot.id}}">
+    <div class="col-xs-10">
+      <h3 data-title="{{jot.name}}">
+        {{#if jot.name}}
+          {{jot.name}}
+        {{else}}
+          Untitled
+        {{/if}}
+      </h3>
+    </div>
+    <div class="col-xs-2">
+      <p  data-active="{{jot.active}}">
+        {{#if jot.active}}
+          Live
+        {{else}}
+          Unpublished
+        {{/if}}
+      </p>
+    </div>
+    <div class="col-xs-12">
+      <p>
+        {{#if jot.content}}
+          {{jot.content}}
+        {{else}}
+          Untitled
+        {{/if}}
+      </p>
+    </div>
+    <div class="col-xs-12 btn-group" role="group">
+      <button type="button" class="btn btn-default edit-btn" data-id="{{jot.id}}">Edit</button>
+      <button type="button" class="btn btn-default delete-btn" data-id="{{jot.id}}">Delete</button>
+    </div>
+  </li>
+{{/each}}
