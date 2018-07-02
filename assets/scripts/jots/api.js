@@ -20,7 +20,29 @@ const indexJots = function (data) {
   })
 }
 
+const destroyJot = function (id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/jots/' + id,
+    headers: {
+      Authorization: `Token token=` + store.user.token
+    }
+  })
+}
+
+const updateJot = function (id) {
+  return $.ajax({
+    method: 'UPDATE',
+    url: config.apiUrl + '/jots/' + id,
+    headers: {
+      Authorization: `Token token=` + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createJot,
-  indexJots
+  indexJots,
+  destroyJot,
+  updateJot
 }

@@ -3,10 +3,13 @@
 // const store = require('../store')
 const indexJotsTemplate = require('../templates/jot-listing.handlebars')
 
-const clearDisplayFields = function () {
+const clearMessageDivs = function () {
   $('#newJotEmptyDiv').html('')
-  $('#listOfJots').html('')
   $('#listOfJotsMessage').html('')
+}
+
+const clearListOfJots = function () {
+  $('#listOfJots').html('')
 }
 
 const clearFormFields = function () {
@@ -14,7 +17,7 @@ const clearFormFields = function () {
 }
 
 const createJotSuccess = function (data) {
-  clearDisplayFields()
+  clearMessageDivs()
   const message = ('<p>Create jot success message</p>')
   $('#newJotEmptyDiv').append(message)
   clearFormFields()
@@ -22,15 +25,15 @@ const createJotSuccess = function (data) {
 
 const createJotError = function (error) {
   console.log('Error in jot creation is ', error)
-  clearDisplayFields()
+  clearMessageDivs()
   const message = ('<p>Create jot error message</p>')
   $('#newJotEmptyDiv').append(message)
   clearFormFields()
 }
 
 const indexJotsSuccess = (data) => {
-  clearDisplayFields()
-  console.log('data is ', data)
+  clearMessageDivs()
+  clearListOfJots()
   const message = ('<p>Here you go:</p>')
   $('#listOfJotsMessage').append(message)
   const indexJotsHtml = indexJotsTemplate({ jots: data.jots })
@@ -39,8 +42,34 @@ const indexJotsSuccess = (data) => {
 
 const indexJotsError = function (error) {
   console.log('Error in jots index is ', error)
-  clearDisplayFields()
-  const message = ('<p>Sorry, there was an error retrieving your jots</p>')
+  clearMessageDivs()
+  const message = ('<p>Sorry, there was an error indexing your jots</p>')
+  $('#listOfJotsMessage').append(message)
+}
+
+const destroyJotSuccess = () => {
+  clearMessageDivs()
+  const message = ('<p>You destroyed your jot</p>')
+  $('#listOfJotsMessage').append(message)
+}
+
+const destroyJotError = (error) => {
+  console.log('Error in destroy jot is ', error)
+  clearMessageDivs()
+  const message = ('<p>Sorry, you were unsuccessful in your attempt to destroy your jot.</p>')
+  $('#listOfJotsMessage').append(message)
+}
+
+const updateJotSuccess = (idFromStore) => {
+  clearMessageDivs()
+  const message = ('<p>You are currently updating your jot</p>')
+  $('#listOfJotsMessage').append(message)
+}
+
+const updateJotError = (error) => {
+  console.log('Error in update jot is ', error)
+  clearMessageDivs()
+  const message = ('<p>Sorry, you were unsuccessful in your attempt to update your jot.</p>')
   $('#listOfJotsMessage').append(message)
 }
 
@@ -48,5 +77,9 @@ module.exports = {
   createJotSuccess,
   createJotError,
   indexJotsSuccess,
-  indexJotsError
+  indexJotsError,
+  destroyJotSuccess,
+  destroyJotError,
+  updateJotSuccess,
+  updateJotError
 }

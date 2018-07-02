@@ -1,7 +1,7 @@
 {{#each jots as |jot|}}
   {{log jot}}
   <li class="row singular-jot" data-id="{{jot.id}}">
-    <div class="col-xs-10">
+    <div class="col-xs-10 jot-name-{{jot.id}}">
       <h3 data-title="{{jot.name}}">
         {{#if jot.name}}
           {{jot.name}}
@@ -10,7 +10,7 @@
         {{/if}}
       </h3>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-2 jot-active-{{jot.id}}">
       <p  data-active="{{jot.active}}">
         {{#if jot.active}}
           Live
@@ -19,7 +19,7 @@
         {{/if}}
       </p>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12 jot-content-{{jot.id}}">
       <p>
         {{#if jot.content}}
           {{jot.content}}
@@ -28,9 +28,16 @@
         {{/if}}
       </p>
     </div>
+    <form class="hidden update-form-jot-{{jot.id}}">
+      <div class="form-group">
+        <input type="text" class="form-control update-jot-name-{{jot.id}}" name="jot[name]" placeholder="Jot Name" value="{{jot.name}}">
+        <input type="text" class="form-control update-jot-content-{{jot.id}}" name="jot[content]" placeholder="Got a thought? Write a jot!" value="{{jot.name}}">
+        <button type="submit" class="btn btn-default update-jot" data-id="{{jot.id}}">Save</button>
+      </div>
+    </form>
     <div class="col-xs-12 btn-group" role="group">
-      <button type="button" class="btn btn-default edit-btn" data-id="{{jot.id}}">Edit</button>
-      <button type="button" class="btn btn-default delete-btn" data-id="{{jot.id}}">Delete</button>
+      <button type="button" class="btn btn-default reveal-jot-editor" data-id="{{jot.id}}">Edit</button>
+      <button type="button" class="btn btn-default destroy-jot" data-id="{{jot.id}}">Delete</button>
     </div>
   </li>
 {{/each}}
