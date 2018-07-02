@@ -30,10 +30,12 @@ const destroyJot = function (id) {
   })
 }
 
-const updateJot = function (id) {
+const updateJot = function (data) {
+  console.log('api.js data is ', data)
   return $.ajax({
-    method: 'UPDATE',
-    url: config.apiUrl + '/jots/' + id,
+    method: 'PATCH',
+    url: config.apiUrl + '/jots/' + store.update,
+    data: data,
     headers: {
       Authorization: `Token token=` + store.user.token
     }

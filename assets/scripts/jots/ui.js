@@ -60,16 +60,16 @@ const destroyJotError = (error) => {
   $('#listOfJotsMessage').append(message)
 }
 
-const updateJotSuccess = (idFromStore) => {
+const updateJotSuccess = () => {
   clearMessageDivs()
-  const message = ('<p>You are currently updating your jot</p>')
+  const message = ('<p>You updated your jot</p>')
   $('#listOfJotsMessage').append(message)
 }
 
 const updateJotError = (error) => {
-  console.log('Error in update jot is ', error)
+  console.log('Error while updating jot is ', error)
   clearMessageDivs()
-  const message = ('<p>Sorry, you were unsuccessful in your attempt to update your jot.</p>')
+  const message = ('<p>Sorry, your attempt to update your jot was unsuccessful.</p>')
   $('#listOfJotsMessage').append(message)
 }
 
