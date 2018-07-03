@@ -20,6 +20,24 @@ const onIndexJots = (event) => {
     .catch(jotUi.indexJotsError)
 }
 
+// const onShowJot = (event) => {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   console.log('data is ', data)
+//   // psuedoku code
+//   // Index all jots
+//   // // Check all jots against 'data', look for a partial match
+//   // // // If there is NO match, run catch-A (no match found)
+//   // // // If there is a match(es)
+//   // // // // Retrieve and store jot id(s)
+//   // // // // Run jotApi.showJot(id) (for each)
+//   // // // // Success clears jot list, appends match(es) via handlebars
+//   // // // // Catch-B (match found, error displaying data)
+//   // jotApi.showJot(data)
+//   // // .then(jotUi.showJotSuccess)
+//   // // .catch(jotUi.showJotError)
+// }
+
 const onDestroyJot = (event) => {
   event.preventDefault()
   const jotId = event.target.parentElement.parentElement.getAttribute('data-id')
@@ -43,7 +61,7 @@ const onRevealJotEditor = (event) => {
   jotActive[0].classList.add('hidden')
   const jotContent = document.getElementsByClassName('jot-content-' + jotId)
   jotContent[0].classList.add('hidden')
-  // Shouts out to Taz for recognizing I need [0] on updateJotForm AAAAH AAAH AAAAAAH woah!!
+  // Shouts out to Taz for recognizing I need [0] on these calls AAAAH AAAH AAAAAAH woah!!
 }
 
 const onUpdateJot = (event) => {
@@ -59,7 +77,8 @@ const onUpdateJot = (event) => {
 }
 
 const addHandlers = () => {
-  $('#jotForm').on('submit', onCreateJot)
+  $('#createNewJot').on('submit', onCreateJot)
+  // $('#showJot').on('submit', onShowJot)
   $('#indexJotsButton').on('click', onIndexJots)
   $('#listOfJots').on('click', '.destroy-jot', onDestroyJot)
   $('#listOfJots').on('click', '.reveal-jot-editor', onRevealJotEditor)

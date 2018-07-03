@@ -1,6 +1,5 @@
 {{#each jots as |jot|}}
-  {{log jot}}
-  <li class="row singular-jot" data-id="{{jot.id}}">
+  <div class="row singular-jot" data-id="{{jot.id}}">
     <div class="col-xs-10 jot-name-{{jot.id}}">
       <h3 data-title="{{jot.name}}">
         {{#if jot.name}}
@@ -31,7 +30,7 @@
     <form class="hidden update-form-jot-{{jot.id}}">
       <div class="form-group">
         <input type="text" class="form-control update-jot-name-{{jot.id}}" name="jot[name]" placeholder="Jot Name" value="{{jot.name}}">
-        <input type="text" class="form-control update-jot-content-{{jot.id}}" name="jot[content]" placeholder="Got a thought? Write a jot!" value="{{jot.name}}">
+        <input type="text" class="form-control update-jot-content-{{jot.id}}" name="jot[content]" placeholder="Got a thought? Write a jot!" value="{{jot.content}}">
         <button type="submit" class="btn btn-default update-jot" data-id="{{jot.id}}">Save</button>
       </div>
     </form>
@@ -39,5 +38,5 @@
       <button type="button" class="btn btn-default reveal-jot-editor" data-id="{{jot.id}}">Edit</button>
       <button type="button" class="btn btn-default destroy-jot" data-id="{{jot.id}}">Delete</button>
     </div>
-  </li>
+  </div>
 {{/each}}

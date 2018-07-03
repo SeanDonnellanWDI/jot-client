@@ -11,118 +11,143 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container">
-
-      <h1>Jot</h1>
-
-      <!-- External User Authentication -->
-      <div class="row user-auth user-auth-external" id="userAuthExternal">
-        <!-- Heading -->
-        <div class="col-xs-12">
-          <h2>User Authentication Forms</h2>
-        </div>
-        <!-- Sign up -->
-        <div class="col-xs-12 col-sm-6 col-md-3" id="signUpSection">
-          <h3>Sign Up</h3>
-          <form id="signUpForm">
-            <div class="form-group">
-              <!-- Sign Up Email Input -->
-              <label for="signUpEmailInput">Email address</label>
-              <input type="email" class="form-control" id="signUpEmailInput" name="credentials[email]" placeholder="Email">
-              <!-- Sign Up Password Input -->
-              <label for="signUpPassword">Password</label>
-              <input type="password" class="form-control" id="signUpPassword" name="credentials[password]" placeholder="Password">
-              <!-- Sign Up Confirm Password Input -->
-              <label for="signUpPasswordConfirm">Confirm Password</label>
-              <input type="password" class="form-control" id="signUpPasswordConfirm" name="credentials[password_confirmation]" placeholder="Confirm Password">
+    <body>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Jot</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse">
+            <!-- External User Auth -->
+            <ul class="nav navbar-nav navbar-right user-auth user-auth-external" id="userAuthExternal">
+              <li class="dropdown" id="signUpSection">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Join <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <form class="navbar-form" id="signUpForm">
+                      <!-- Sign Up Email Input -->
+                      <div class="form-group">
+                        <label for="signUpEmailInput">Email address</label>
+                        <input type="email" class="form-control" id="signUpEmailInput" name="credentials[email]" placeholder="Email">
+                      </div>
+                      <!-- Sign Up Password Input -->
+                      <div class="form-group">
+                        <label for="signUpPassword">Password</label>
+                        <input type="password" class="form-control" id="signUpPassword" name="credentials[password]" placeholder="Password">
+                      </div>
+                      <!-- Sign Up Confirm Password Input -->
+                      <div class="form-group">
+                        <label for="signUpPasswordConfirm">Confirm Password</label>
+                        <input type="password" class="form-control" id="signUpPasswordConfirm" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                      </div>
+                      <!-- Sign Up Submit -->
+                      <button class="btn btn-default" type="submit">Sign Up</button>
+                    </form>
+                  </li>
+                  <li>
+                    <div class="navbar-text" id="signUpEmptyDiv"></div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown login-dropdown" id="signInSection">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <form class="navbar-form" id="signInForm">
+                      <div class="form-group">
+                        <!-- Sign In Email Input -->
+                        <label for="signInEmailInput">Email address</label>
+                        <input type="email" class="form-control" id="signInEmailInput" name="credentials[email]" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                        <!-- Sign In Password Input -->
+                        <label for="signInPassword">Password</label>
+                        <input type="password" class="form-control" id="signInPassword" name="credentials[password]" placeholder="Password">
+                      </div>
+                      <!-- Sign In Submit -->
+                      <button class="btn btn-default" type="submit">Sign In</button>
+                    </form>
+                  </li>
+                  <li>
+                    <div class="navbar-text" id="signInEmptyDiv"></div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!-- Internal User Auth -->
+            <ul class="nav navbar-nav navbar-right user-auth user-auth-internal hidden" id="userAuthInternal">
+              <li class="dropdown join-dropdown" id="changePassSection">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <form class="navbar-form" id="changePasswordForm">
+                      <div class="form-group">
+                        <!-- Change Password Old Input -->
+                        <label for="changePasswordOld">Old Password</label>
+                        <input type="password" class="form-control" id="changePasswordOld" name="passwords[old]" placeholder="Old Password">
+                      </div>
+                      <div class="form-group">
+                        <!-- Change Password New Input -->
+                        <label for="changePasswordNew">New Password</label>
+                        <input type="password" class="form-control" id="changePasswordNew" name="passwords[new]" placeholder="New Password">
+                      </div>
+                      <!-- Change Password Submit -->
+                      <button class="btn btn-default" type="submit">Change Password</button>
+                    </form>
+                  </li>
+                  <li>
+                    <div class="navbar-text" id="changePasswordEmptyDiv"></div>
+                  </li>
+                </ul>
+              </li>
+              <li id="signOutSection">
+                <form class="navbar-form navbar-left" id="signOutForm">
+                  <button class="btn btn-default" id="signOutBtn" type="submit">Sign Out</button>
+                </form>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+      <div class="container">
+        <!-- Jot Section -->
+        <div class="row jot-section hidden" id="jotSection">
+          <!-- New Jot -->
+          <div class="col-xs-12 col-sm-6" id="jotForm">
+            <h2>Write a Jot</h2>
+            <form id="createNewJot">
+              <div class="form-group">
+                <!-- New Jot Name Input -->
+                <label for="newJotName">Jot Name</label>
+                <input type="text" class="form-control" id="newJotName" name="jot[name]" placeholder="Jot Name">
+              </div>
+              <div class="form-group">
+                <!-- New Jot Content Input -->
+                <label for="newJotContent">Jot Content</label>
+                <input type="text" class="form-control" id="newJotContent" name="jot[content]" placeholder="Got a thought? Write a jot!">
+              </div>
               <!-- Sign Up Submit -->
-              <button type="submit">Sign Up</button>
-            </div>
-          </form>
-          <div class="col-xs-12" id="signUpEmptyDiv"></div>
-        </div>
-        <!-- Sign In -->
-        <div class="col-xs-12 col-sm-6 col-md-3" id="signInSection">
-          <h3>Sign In</h3>
-          <form id="signInForm">
-            <div class="form-group">
-              <!-- Sign In Email Input -->
-              <label for="signInEmailInput">Email address</label>
-              <input type="email" class="form-control" id="signInEmailInput" name="credentials[email]" placeholder="Email">
-              <!-- Sign In Password Input -->
-              <label for="signInPassword">Password</label>
-              <input type="password" class="form-control" id="signInPassword" name="credentials[password]" placeholder="Password">
-              <!-- Sign In Submit -->
-              <button type="submit">Sign In</button>
-            </div>
-          </form>
-          <div class="col-xs-12" id="signInEmptyDiv"></div>
-        </div>
-      </div>
+              <button class="btn btn-default" type="submit">Create Jot</button>
+            </form>
+            <div class="col-xs-12" id="newJotEmptyDiv"></div>
+          </div>
 
-      <!-- Internal User Authentication -->
-      <div class="row user-auth user-auth-internal hidden" id="userAuthInternal">
-        <!-- Heading -->
-        <div class="col-xs-12">
-          <h2>User Authentication Forms</h2>
+          <!-- List of Jots -->
+          <div class="col-xs-12 col-sm-6">
+            <h2>Read your Jots!</h2>
+            <button class="btn btn-default" id="indexJotsButton">List Your Jots</button>
+            <div id="listOfJotsMessage"></div>
+            <div class="list-of-jots" id="listOfJots"></div>
+          </div>
         </div>
-        <!-- Change Password -->
-        <div class="col-xs-12 col-sm-6 col-md-3" id="changePassSection">
-          <h3>Change Password</h3>
-          <form id="changePasswordForm">
-            <div class="form-group">
-              <!-- Change Password Old Input -->
-              <label for="changePasswordOld">Old Password</label>
-              <input type="password" class="form-control" id="changePasswordOld" name="passwords[old]" placeholder="Old Password">
-              <!-- Change Password New Input -->
-              <label for="changePasswordNew">New Password</label>
-              <input type="password" class="form-control" id="changePasswordNew" name="passwords[new]" placeholder="New Password">
-              <!-- Change Password Submit -->
-              <button type="submit">Change Password</button>
-            </div>
-          </form>
-          <div class="col-xs-12" id="changePasswordEmptyDiv"></div>
-        </div>
-        <!-- Sign Out -->
-        <div class="col-xs-12 col-sm-6 col-md-3" id="signOutSection">
-          <h3>Sign Out</h3>
-          <form id="signOutForm">
-            <div class="form-group">
-              <button id="signOutBtn" type="submit">Sign Out</button>
-            </div>
-          </form>
-          <div class="col-xs-12" id="signOutEmptyDiv"></div>
-        </div>
-      </div>
-
-      <!-- Jot Section -->
-      <div class="row jot-section hidden" id="jotSection">
-        <div class="col-xs-12">
-          <h2>Jot Section</h2>
-        </div>
-        <!-- New Jot -->
-        <div class="col-xs-12" id="jotForm">
-          <h3>New Jots</h3>
-          <form id="createNewJot">
-            <div class="form-group">
-              <!-- New Jot Name Input -->
-              <label for="newJotName">Jot Name</label>
-              <input type="text" class="form-control" id="newJotName" name="jot[name]" placeholder="Jot Name">
-              <!-- New Jot Content Input -->
-              <label for="newJotContent">Jot Content</label>
-              <input type="text" class="form-control" id="newJotContent" name="jot[content]" placeholder="Got a thought? Write a jot!">
-              <!-- Sign Up Submit -->
-              <button type="submit">Create Jot</button>
-            </div>
-          </form>
-          <div class="col-xs-12" id="newJotEmptyDiv"></div>
-        </div>
-
-        <!-- List of Jots -->
-        <h3>Your Jots</h3>
-        <button class="btn btn-default" id="indexJotsButton">List Your Jots</button>
-        <div class="col-xs-12" id="listOfJotsMessage"></div>
-        <ul class="col-xs-12 list-of-jots" id="listOfJots"></ul>
       </div>
     </body>
 </html>

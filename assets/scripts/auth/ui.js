@@ -1,5 +1,3 @@
-// HEY SEAN!!! Sean, you may edit this file. Don't edit files that don't have this comment at the top. Delete this comment before deliverables are due
-
 'use strict'
 
 const store = require(`../store`)
@@ -15,6 +13,13 @@ const clearFormFields = function () {
   document.getElementById(`signUpForm`).reset()
   document.getElementById(`signInForm`).reset()
   document.getElementById(`changePasswordForm`).reset()
+}
+
+const clearJotListMessagesForms = function () {
+  $('#newJotEmptyDiv').html('')
+  $('#listOfJotsMessage').html('')
+  $('#listOfJots').html('')
+  document.getElementById('createNewJot').reset()
 }
 
 // Show/hide Jot Section
@@ -106,6 +111,7 @@ const changePasswordError = function (error) {
 }
 
 const signOutSuccess = function () {
+  clearJotListMessagesForms()
   clearDisplayFields()
   const message = (`<p>Sign out success message</p>`)
   $(`#signOutEmptyDiv`).append(message)

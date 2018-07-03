@@ -47,6 +47,22 @@ const indexJotsError = function (error) {
   $('#listOfJotsMessage').append(message)
 }
 
+// const showJotSuccess = (data) => {
+//   clearMessageDivs()
+//   clearListOfJots()
+//   const message = ('<p>Here are you search results:</p>')
+//   $('#listOfJotsMessage').append(message)
+//   const showJotHtml = indexJotsTemplate({ jots: data.jots.id })
+//   $('#listOfJots').append(showJotHtml)
+// }
+//
+// const showJotError = function (error) {
+//   console.log('Error in jot show is ', error)
+//   clearMessageDivs()
+//   const message = ('<p>Sorry, there was an error showing your jots</p>')
+//   $('#listOfJotsMessage').append(message)
+// }
+
 const destroyJotSuccess = () => {
   clearMessageDivs()
   const message = ('<p>You destroyed your jot</p>')
@@ -78,6 +94,8 @@ module.exports = {
   createJotError,
   indexJotsSuccess,
   indexJotsError,
+  // showJotSuccess,
+  // showJotError,
   destroyJotSuccess,
   destroyJotError,
   updateJotSuccess,
