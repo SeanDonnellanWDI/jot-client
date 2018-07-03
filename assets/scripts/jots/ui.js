@@ -36,8 +36,12 @@ const indexJotsSuccess = (data) => {
   clearListOfJots()
   const message = ('<p>Here you go:</p>')
   $('#listOfJotsMessage').append(message)
-  const indexJotsHtml = indexJotsTemplate({ jots: data.jots })
-  $('#listOfJots').append(indexJotsHtml)
+  if (data.jots.length !== 0) {
+    const indexJotsHtml = indexJotsTemplate({ jots: data.jots })
+    $('#listOfJots').append(indexJotsHtml)
+  } else {
+    $('#listOfJots').append('<p>No jots</p>')
+  }
 }
 
 const indexJotsError = function (error) {
