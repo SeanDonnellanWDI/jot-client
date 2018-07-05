@@ -70,6 +70,7 @@ https://git.generalassemb.ly/ga-wdi-boston/full-stack-project/issues?q=is%3Aissu
 Additionally, a major obstacle was wrapping my mind around my own concept. I revisited my ERD frequently and would constantly rediagram my plan. I believe this actually hindered my process because I was getting too far ahead of myself. Too often I would catch myself thinking of ideas which were unecessary to MVP, however I would diagram out my ERD just incase it would affect my Jots table. Occasionally it did, which then sidetracked my forward progress to MVP. Had I waited to redo my Jots table toward the end of my MVP development process, or thought harder about my idea while planning it, I would have saved myself a lot of time.
 
 ## Accomplishments
+- Distinguishing the difference between opening the jot editor and actually updating the jot, two seperate events which interact with the handlebars template.
 - Integrating functional Edit and delete buttons within Handlebars
 - Removing a column on my own without needing to open an issue ticket (I actually read the error messages woohoo!)
 - Feeling comfortable with the deployment process for the API and Client
@@ -77,6 +78,7 @@ Additionally, a major obstacle was wrapping my mind around my own concept. I rev
 
 ## Unsolved Problems, Next Steps, and Nice-to-Have's
 - Make this README better
+- Integrate a drag and drop jQuery library
 - Remove the joke user-facing messages. Make them actually informative and useful messages.
 - Build, test, and connect the thoughts join table
 - Actually style the website correctly
