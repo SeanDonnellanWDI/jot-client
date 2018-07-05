@@ -65,7 +65,7 @@ const hideSignUpSignIn = function () {
 const signUpSuccess = function (response) {
   clearDisplayFields()
   const message = (`<p>Sign up success</p>
-    <img src="assets/img/sign_up_success.jpg" alt="sign in success">`)
+    <img src="public/img/sign_up_success.jpg" alt="sign in success">`)
   $(`#signUpEmptyDiv`).append(message)
   clearFormFields()
 }
@@ -74,7 +74,7 @@ const signUpError = function (error) {
   console.log(`Error in sign up is `, error)
   clearDisplayFields()
   const message = (`<p>Sign up error</p>
-    <img src="assets/img/sign_up_error.jpg" alt="sign up error">`)
+    <img src="public/img/sign_up_error.jpg" alt="sign up error">`)
   $(`#signUpEmptyDiv`).append(message)
   clearFormFields()
 }
@@ -83,7 +83,7 @@ const signInSuccess = function (response) {
   clearDisplayFields()
   store.user = response.user
   const message = (`<p>Sign in success</p>
-    <img src="assets/img/sign_in.jpg" alt="sign in success">`)
+    <img src="public/img/sign_in.jpg" alt="sign in success">`)
   $(`#signInEmptyDiv`).append(message)
   clearFormFields()
   revealChangePassSignOut()
@@ -94,7 +94,7 @@ const signInError = function (error) {
   console.log(`Error in sign in is `, error)
   clearDisplayFields()
   const message = (`<p>Sign in error message</p>
-    <img src="assets/img/sign_in_error.jpg" alt="sign in error">`)
+    <img src="public/img/sign_in_error.jpg" alt="sign in error">`)
   $(`#signInEmptyDiv`).append(message)
   clearFormFields()
 }
@@ -102,7 +102,7 @@ const signInError = function (error) {
 const changePasswordSuccess = function () {
   clearDisplayFields()
   const message = (`<p>Change password success message</p>
-    <img src="assets/img/change_pass_success.jpg" alt="change password success">`)
+    <img src="public/img/change_pass_success.jpg" alt="change password success">`)
   $(`#changePasswordEmptyDiv`).append(message)
   clearFormFields()
 }
@@ -111,7 +111,7 @@ const changePasswordError = function (error) {
   console.log(`Error in changePassword is `, error)
   clearDisplayFields()
   const message = (`<p>Change Password Error</p>
-    <img src="assets/img/incorrect_password.jpg" alt="change password error">`)
+    <img src="public/img/incorrect_password.jpg" alt="change password error">`)
   $(`#changePasswordEmptyDiv`).append(message)
   clearFormFields()
 }
@@ -120,7 +120,7 @@ const signOutSuccess = function () {
   clearJotListMessagesForms()
   clearDisplayFields()
   const message = (`<p>Sign out success message</p>
-    <img src="assets/img/sign_out_success.jpg" alt="sign out success">`)
+    <img src="public/img/sign_out_success.jpg" alt="sign out success">`)
   $(`#signOutEmptyDiv`).append(message)
   clearFormFields()
   hideChangePassSignOut()
@@ -132,7 +132,7 @@ const signOutError = function (error) {
   console.log(`Error in sign out is `, error)
   clearDisplayFields()
   const message = (`<p>Sign out error message</p>
-    <img src="assets/img/sign_out_error.jpg" alt="sign out error">`)
+    <img src="public/img/sign_out_error.jpg" alt="sign out error">`)
   $(`#signOutEmptyDiv`).append(message)
   clearFormFields()
 }
