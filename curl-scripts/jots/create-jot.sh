@@ -8,8 +8,7 @@ curl "https://jot-api.herokuapp.com/jots" \
   --data '{
     "jot": {
       "name": "'"${NAME}"'",
-      "content": "'"${CONTENT}"'",
-      "active": "'"${BOOL}"'"
+      "content": "'"${CONTENT}"'"
     }
   }'
 
