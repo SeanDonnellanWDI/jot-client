@@ -52,9 +52,6 @@
                       <button class="btn btn-default" type="submit">Sign Up</button>
                     </form>
                   </li>
-                  <li>
-                    <div class="navbar-text" id="signUpEmptyDiv"></div>
-                  </li>
                 </ul>
               </li>
               <li class="dropdown login-dropdown" id="signInSection">
@@ -75,9 +72,6 @@
                       <!-- Sign In Submit -->
                       <button class="btn btn-default" type="submit">Sign In</button>
                     </form>
-                  </li>
-                  <li>
-                    <div class="navbar-text" id="signInEmptyDiv"></div>
                   </li>
                 </ul>
               </li>
@@ -103,9 +97,6 @@
                       <button class="btn btn-default" type="submit">Change Password</button>
                     </form>
                   </li>
-                  <li>
-                    <div class="navbar-text" id="changePasswordEmptyDiv"></div>
-                  </li>
                 </ul>
               </li>
               <li id="signOutSection">
@@ -118,6 +109,15 @@
         </div><!-- /.container-fluid -->
       </nav>
       <div class="container">
+        <div class="row">
+          <div class="col-xs-4">
+            <div id="newJotEmptyDiv"></div>
+            <div id="listOfJotsMessage"></div>
+            <div id="signUpEmptyDiv"></div>
+            <div id="signInEmptyDiv"></div>
+            <div id="changePasswordEmptyDiv"></div>
+          </div>
+        </div>
         <!-- Jot Section -->
         <div class="row jot-section hidden" id="jotSection">
           <!-- New Jot -->
@@ -137,14 +137,12 @@
               <!-- Sign Up Submit -->
               <button class="btn btn-default" type="submit">Create Jot</button>
             </form>
-            <div class="col-xs-12" id="newJotEmptyDiv"></div>
           </div>
 
           <!-- List of Jots -->
           <div class="col-xs-12 col-sm-6">
             <h2>Read your Jots!</h2>
             <button class="btn btn-default" id="indexJotsButton">List Your Jots</button>
-            <div id="listOfJotsMessage"></div>
             <div class="list-of-jots" id="listOfJots"></div>
           </div>
         </div>
