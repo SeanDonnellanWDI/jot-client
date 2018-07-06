@@ -22,8 +22,6 @@ const clearJotListMessagesForms = function () {
   document.getElementById('createNewJot').reset()
 }
 
-// Show/hide Jot Section
-
 const revealJotSection = function () {
   const jotSection = document.getElementById('jotSection')
   jotSection.classList.remove('hidden')
@@ -33,8 +31,6 @@ const hideJotSection = function () {
   const jotSection = document.getElementById('jotSection')
   jotSection.classList.add('hidden')
 }
-
-// Show/hide user auth EXTERNAL
 
 const revealChangePassSignOut = function () {
   revealJotSection()
@@ -47,8 +43,6 @@ const hideChangePassSignOut = function () {
   userAuthInternal.classList.add('hidden')
 }
 
-// Show/hide user auth INTERNAL
-
 const revealSignUpSignIn = function () {
   hideJotSection()
   const userAuthExternal = document.getElementById('userAuthExternal')
@@ -59,8 +53,6 @@ const hideSignUpSignIn = function () {
   const userAuthExternal = document.getElementById('userAuthExternal')
   userAuthExternal.classList.add('hidden')
 }
-
-// organizational gap
 
 const signUpSuccess = function (response) {
   clearDisplayFields()

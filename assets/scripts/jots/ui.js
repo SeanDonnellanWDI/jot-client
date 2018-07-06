@@ -25,6 +25,7 @@ const clearFormFields = function () {
 
 const createJotSuccess = function (data) {
   clearMessageDivs()
+  clearListOfJots()
   clearDisplayFields()
   const message = ('<p>Create jot success</p>')
   $('#newJotEmptyDiv').append(message)
@@ -33,6 +34,7 @@ const createJotSuccess = function (data) {
 
 const createJotError = function () {
   clearMessageDivs()
+  clearListOfJots()
   clearDisplayFields()
   const message = ('<p>Create jot error</p>')
   $('#newJotEmptyDiv').append(message)
@@ -44,17 +46,18 @@ const indexJotsSuccess = (data) => {
   clearListOfJots()
   clearDisplayFields()
   if (data.jots.length !== 0) {
-    const message = ('<p>Here you go:</p>')
+    const message = ('<p>Here are your jots</p>')
     $('#listOfJotsMessage').append(message)
     const indexJotsHtml = indexJotsTemplate({ jots: data.jots })
     $('#listOfJots').append(indexJotsHtml)
   } else {
-    $('#listOfJots').append('<p>No jots</p>')
+    $('#listOfJotsMessage').append('<p>There are no jots to display</p>')
   }
 }
 
 const indexJotsError = function () {
   clearMessageDivs()
+  clearListOfJots()
   clearDisplayFields()
   const message = ('<p>Sorry, there was an error indexing your jots</p>')
   $('#listOfJotsMessage').append(message)
