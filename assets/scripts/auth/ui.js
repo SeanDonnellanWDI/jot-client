@@ -79,7 +79,7 @@ const signInSuccess = function (response) {
 
 const signInError = function () {
   clearMessageDiv()
-  const message = ('<p>Sorry, it woukd appear something went wrong while trying to sign in. Please make sure you sign up first and type all credentials correctly.</p>')
+  const message = ('<p>Sorry, it would appear something went wrong while trying to sign in. Please make sure you sign up first and type all credentials correctly.</p>')
   $('#userFacingMessages').append(message)
   clearFormFields()
 }
