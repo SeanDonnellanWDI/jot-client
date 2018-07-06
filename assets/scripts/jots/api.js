@@ -42,7 +42,6 @@ const destroyJot = function (id) {
 }
 
 const updateJot = function (data) {
-  console.log('api.js data is ', data)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/jots/' + store.update,

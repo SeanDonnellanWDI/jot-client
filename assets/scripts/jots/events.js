@@ -23,7 +23,6 @@ const onIndexJots = (event) => {
 // const onShowJot = (event) => {
 //   event.preventDefault()
 //   const data = getFormFields(event.target)
-//   console.log('data is ', data)
 //   // psuedoku code
 //   // Index all jots
 //   // // Check all jots against 'data', look for a partial match
@@ -65,7 +64,6 @@ const onUpdateJot = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target.parentElement.parentElement)
   store.update = event.target.getAttribute('data-id')
-  console.log('store.update is ', store.update)
   jotApi.updateJot(data)
     .then(jotUi.updateJotSuccess)
     .then(jotApi.indexJots)
