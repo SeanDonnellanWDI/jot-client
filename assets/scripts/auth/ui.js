@@ -55,14 +55,14 @@ const clearJotListMessagesForms = function () {
 
 const signUpSuccess = function (response) {
   clearMessageDiv()
-  const message = ('<p>Sign up success</p>')
+  const message = ('<p>You signed up! We are happy you joined Jot, now please login.</p>')
   $('#userFacingMessages').append(message)
   clearFormFields()
 }
 
 const signUpError = function () {
   clearMessageDiv()
-  const message = ('<p>Sign up error</p>')
+  const message = ('<p>Sorry, something went wrong. Make sure you are using a new email and you are typing in your password correctly.</p>')
   $('#userFacingMessages').append(message)
   clearFormFields()
 }
@@ -70,7 +70,7 @@ const signUpError = function () {
 const signInSuccess = function (response) {
   clearMessageDiv()
   store.user = response.user
-  const message = ('<p>Sign in success</p>')
+  const message = ('<p>Welcome to Jot! You are now signed in.</p>')
   $('#userFacingMessages').append(message)
   clearFormFields()
   revealChangePassSignOut()
@@ -79,21 +79,21 @@ const signInSuccess = function (response) {
 
 const signInError = function () {
   clearMessageDiv()
-  const message = ('<p>Sign in error message</p>')
+  const message = ('<p>Sorry, it woukd appear something went wrong while trying to sign in. Please make sure you sign up first and type all credentials correctly.</p>')
   $('#userFacingMessages').append(message)
   clearFormFields()
 }
 
 const changePasswordSuccess = function () {
   clearMessageDiv()
-  const message = ('<p>Change password success message</p>')
+  const message = ('<p>You successfully changed your password, careful not to forget your new one!</p>')
   $('#userFacingMessages').append(message)
   clearFormFields()
 }
 
 const changePasswordError = function () {
   clearMessageDiv()
-  const message = ('<p>Change Password Error</p>')
+  const message = ('<p>Sorry, something went wrong while changing your password. Please double check that you input the correct credentials.</p>')
   $('#userFacingMessages').append(message)
   clearFormFields()
 }
@@ -101,7 +101,7 @@ const changePasswordError = function () {
 const signOutSuccess = function () {
   clearJotListMessagesForms()
   clearMessageDiv()
-  const message = ('<p>Sign out success message</p>')
+  const message = ('<p>You are now signed out of Jot, come back soon!</p>')
   $('#userFacingMessages').append(message)
   clearFormFields()
   hideChangePassSignOut()
@@ -111,7 +111,7 @@ const signOutSuccess = function () {
 
 const signOutError = function () {
   clearMessageDiv()
-  const message = ('<p>Sign out error message</p>')
+  const message = ('<p>Sorry, something went wrong while signing out, please try again soon!</p>')
   $('#userFacingMessages').append(message)
   clearFormFields()
 }
