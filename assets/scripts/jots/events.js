@@ -59,7 +59,6 @@ const onRevealJotEditor = (event) => {
   jotName[0].classList.add('hidden')
   const jotContent = document.getElementsByClassName('jot-content-' + jotId)
   jotContent[0].classList.add('hidden')
-  // Shouts out to Taz for recognizing I need [0] on these calls AAAAH AAAH AAAAAAH woah!!
 }
 
 const onUpdateJot = (event) => {
