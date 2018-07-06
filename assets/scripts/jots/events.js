@@ -18,8 +18,8 @@ const onCreateJot = (event) => {
 const onIndexJots = (event) => {
   event.preventDefault()
   jotApi.indexJots()
+    .then(jotUi.runHandlebars)
     .then(jotUi.indexJotsSuccess)
-    .then(jotApi.indexJots)
     .catch(jotUi.indexJotsError)
 }
 

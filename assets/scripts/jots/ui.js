@@ -8,6 +8,7 @@ const runHandlebars = function (data) {
   $('#listOfJots').html('')
   const indexJotsHtml = indexJotsTemplate({ jots: data.jots })
   $('#listOfJots').append(indexJotsHtml)
+  return data
 }
 
 const clearMessageDiv = function () {
