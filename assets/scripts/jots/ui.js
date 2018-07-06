@@ -1,94 +1,69 @@
 'use strict'
 
-// const store = require('../store')
 const indexJotsTemplate = require('../templates/jot-listing.handlebars')
 
-const clearMessageDivs = function () {
-  $('#newJotEmptyDiv').html('')
-  $('#listOfJotsMessage').html('')
-}
+// Assistant functions
 
-const clearListOfJots = function () {
+const runHandlebars = function (data) {
   $('#listOfJots').html('')
+  const indexJotsHtml = indexJotsTemplate({ jots: data.jots })
+  $('#listOfJots').append(indexJotsHtml)
 }
 
-const clearDisplayFields = function () {
-  $(`#signUpEmptyDiv`).html(``)
-  $(`#signInEmptyDiv`).html(``)
-  $(`#changePasswordEmptyDiv`).html(``)
-  $(`#signOutEmptyDiv`).html(``)
+const clearMessageDiv = function () {
+  $('#userFacingMessages').html('')
 }
 
 const clearFormFields = function () {
   document.getElementById('createNewJot').reset()
 }
 
+// CRUD functions
+
 const createJotSuccess = function (data) {
-  clearMessageDivs()
-  clearListOfJots()
-  clearDisplayFields()
-  const message = ('<p>Create jot success</p>')
-  $('#newJotEmptyDiv').append(message)
+  clearMessageDiv()
+  $('#userFacingMessages').append('<p>Create jot success</p>')
   clearFormFields()
 }
 
 const createJotError = function () {
-  clearMessageDivs()
-  clearListOfJots()
-  clearDisplayFields()
-  const message = ('<p>Create jot error</p>')
-  $('#newJotEmptyDiv').append(message)
+  clearMessageDiv()
+  $('#userFacingMessages').append('<p>Create jot error</p>')
   clearFormFields()
 }
 
 const indexJotsSuccess = (data) => {
-  clearMessageDivs()
-  clearListOfJots()
-  clearDisplayFields()
+  clearMessageDiv()
   if (data.jots.length !== 0) {
-    const message = ('<p>Here are your jots</p>')
-    $('#listOfJotsMessage').append(message)
-    const indexJotsHtml = indexJotsTemplate({ jots: data.jots })
-    $('#listOfJots').append(indexJotsHtml)
+    $('#userFacingMessages').append('<p>Here are your jots</p>')
   } else {
-    $('#listOfJotsMessage').append('<p>There are no jots to display</p>')
+    $('#userFacingMessages').append('<p>There are no jots to display</p>')
   }
 }
 
 const indexJotsError = function () {
-  clearMessageDivs()
-  clearListOfJots()
-  clearDisplayFields()
-  const message = ('<p>Sorry, there was an error indexing your jots</p>')
-  $('#listOfJotsMessage').append(message)
+  clearMessageDiv()
+  $('#userFacingMessages').append('<p>Sorry, there was an error indexing your jots</p>')
 }
 
 const destroyJotSuccess = () => {
-  clearMessageDivs()
-  clearDisplayFields()
-  const message = ('<p>You destroyed your jot</p>')
-  $('#listOfJotsMessage').append(message)
+  clearMessageDiv()
+  $('#userFacingMessages').append('<p>You destroyed your jot</p>')
 }
 
 const destroyJotError = () => {
-  clearMessageDivs()
-  clearDisplayFields()
-  const message = ('<p>Sorry, you were unsuccessful in your attempt to destroy your jot.</p>')
-  $('#listOfJotsMessage').append(message)
+  clearMessageDiv()
+  $('#userFacingMessages').append('<p>Sorry, you were unsuccessful in your attempt to destroy your jot.</p>')
 }
 
 const updateJotSuccess = () => {
-  clearMessageDivs()
-  clearDisplayFields()
-  const message = ('<p>You updated your jot</p>')
-  $('#listOfJotsMessage').append(message)
+  clearMessageDiv()
+  $('#userFacingMessages').append('<p>You updated your jot</p>')
 }
 
 const updateJotError = () => {
-  clearMessageDivs()
-  clearDisplayFields()
-  const message = ('<p>Sorry, your attempt to update your jot was unsuccessful.</p>')
-  $('#listOfJotsMessage').append(message)
+  clearMessageDiv()
+  $('#userFacingMessages').append('<p>Sorry, your attempt to update your jot was unsuccessful.</p>')
 }
 
 module.exports = {
@@ -99,5 +74,6 @@ module.exports = {
   destroyJotSuccess,
   destroyJotError,
   updateJotSuccess,
-  updateJotError
+  updateJotError,
+  runHandlebars
 }

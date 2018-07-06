@@ -14,7 +14,7 @@ const createJot = function (data) {
   })
 }
 
-const indexJots = function () {
+const indexJots = function (data) {
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/jots',
@@ -23,13 +23,6 @@ const indexJots = function () {
     }
   })
 }
-
-// const showJot = function (id) {
-//   return $.ajax({
-//     method: 'GET',
-//     url: config.apiUrl + '/jots/' + id
-//   })
-// }
 
 const destroyJot = function (id) {
   return $.ajax({
@@ -55,7 +48,6 @@ const updateJot = function (data) {
 module.exports = {
   createJot,
   indexJots,
-  // showJot,
   destroyJot,
   updateJot
 }

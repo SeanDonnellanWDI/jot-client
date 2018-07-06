@@ -10,6 +10,8 @@ const onCreateJot = (event) => {
   const data = getFormFields(event.target)
   jotApi.createJot(data)
     .then(jotUi.createJotSuccess)
+    .then(jotApi.indexJots)
+    .then(jotUi.runHandlebars)
     .catch(jotUi.createJotError)
 }
 
@@ -17,25 +19,9 @@ const onIndexJots = (event) => {
   event.preventDefault()
   jotApi.indexJots()
     .then(jotUi.indexJotsSuccess)
+    .then(jotApi.indexJots)
     .catch(jotUi.indexJotsError)
 }
-
-// const onShowJot = (event) => {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   // psuedoku code
-//   // Index all jots
-//   // // Check all jots against 'data', look for a partial match
-//   // // // If there is NO match, run catch-A (no match found)
-//   // // // If there is a match(es)
-//   // // // // Retrieve and store jot id(s)
-//   // // // // Run jotApi.showJot(id) (for each)
-//   // // // // Success clears jot list, appends match(es) via handlebars
-//   // // // // Catch-B (match found, error displaying data)
-//   // jotApi.showJot(data)
-//   // // .then(jotUi.showJotSuccess)
-//   // // .catch(jotUi.showJotError)
-// }
 
 const onDestroyJot = (event) => {
   event.preventDefault()
@@ -43,7 +29,7 @@ const onDestroyJot = (event) => {
   jotApi.destroyJot(jotId)
     .then(jotUi.destroyJotSuccess)
     .then(jotApi.indexJots)
-    .then(jotUi.indexJotsSuccess)
+    .then(jotUi.runHandlebars)
     .catch(jotUi.destroyJotError)
 }
 
@@ -67,13 +53,12 @@ const onUpdateJot = (event) => {
   jotApi.updateJot(data)
     .then(jotUi.updateJotSuccess)
     .then(jotApi.indexJots)
-    .then(jotUi.indexJotsSuccess)
+    .then(jotUi.runHandlebars)
     .catch(jotUi.updateJotError)
 }
 
 const addHandlers = () => {
   $('#createNewJot').on('submit', onCreateJot)
-  // $('#showJot').on('submit', onShowJot)
   $('#indexJotsButton').on('click', onIndexJots)
   $('#listOfJots').on('click', '.destroy-jot', onDestroyJot)
   $('#listOfJots').on('click', '.reveal-jot-editor', onRevealJotEditor)
