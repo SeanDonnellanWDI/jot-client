@@ -20,10 +20,14 @@
     </div>
     <form class="hidden update-form-jot-{{jot.id}}">
       <div class="form-group">
-        <input type="text" class="form-control update-jot-name-{{jot.id}}" name="jot[name]" placeholder="Jot Name" value="{{jot.name}}">
-        <input type="text" class="form-control update-jot-content-{{jot.id}}" name="jot[content]" placeholder="Got a thought? Write a jot!" value="{{jot.content}}">
-        <button type="submit" class="btn btn-default update-jot" data-id="{{jot.id}}">Save</button>
+        <label for="update-jot-name-{{jot.id}}">Jot Name</label>
+        <input type="text" class="form-control" id="update-jot-name-{{jot.id}}" name="jot[name]" placeholder="Jot Name" value="{{jot.name}}">
       </div>
+      <div class="form-group">
+        <label for="update-jot-content-{{jot.id}}">Jot Content</label>
+        <input type="text" class="form-control" id="update-jot-content-{{jot.id}}" name="jot[content]" placeholder="Got a thought? Write a jot!" value="{{jot.content}}">
+      </div>
+      <button type="submit" class="btn btn-default update-jot" data-id="{{jot.id}}">Save</button>
     </form>
     <div class="col-xs-12 btn-group" role="group">
       <button type="button" class="btn btn-default reveal-jot-editor" data-id="{{jot.id}}">Edit</button>
