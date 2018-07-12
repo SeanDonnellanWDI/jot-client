@@ -54,7 +54,7 @@ const destroyJotSuccess = () => {
 
 const destroyJotError = () => {
   clearMessageDiv()
-  $('#userFacingMessages').append('<p>Sorry, you were unable to delete your jot, please try again later.</p>')
+  $('#userFacingMessages').append('<p>Sorry, you were unable to delete your jot.</p>')
 }
 
 const updateJotSuccess = () => {
@@ -64,7 +64,7 @@ const updateJotSuccess = () => {
 
 const updateJotError = () => {
   clearMessageDiv()
-  $('#userFacingMessages').append('<p>Sorry, your attempt to update your jot was unsuccessful, please try again later.</p>')
+  $('#userFacingMessages').append('<p>Sorry, your attempt to update your jot was unsuccessful. Please confirm that you include a title and content, they are both necessary.</p>')
 }
 
 module.exports = {
