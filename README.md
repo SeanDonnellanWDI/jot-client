@@ -83,4 +83,3 @@ Additionally, a major obstacle was wrapping my mind around my own concept. I rev
 - Build, test, and connect the thoughts join table
 - Actually style the website correctly
 - Acquire 1 billion users
-- Take down Twitter
