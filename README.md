@@ -2,7 +2,7 @@
 
 # Sean Donnellan Jot Project - Client
 API - https://jot-api.herokuapp.com/
-Client - https://seandonnellanwdi.github.io/jot-client/
+Client - https://seandonn-boston.github.io/jot-client/
 
 ## The Assignment
 Create a self-guided SPA project that requires a front end client and a back end api which communicate with each other. Must perform CRUD actions from the front end onto the back end.
@@ -43,7 +43,7 @@ Like Twitter with version control, with public/private/unpublished capabilities,
 - Issue Cue
 
 ## Prepwork
-- I completed the project practice (https://git.generalassemb.ly/SeanDonnellanWDI/full-stack-project-practice/blob/response/practice.md)
+- I completed the project practice (https://git.generalassemb.ly/seandonn-boston/full-stack-project-practice/blob/response/practice.md)
 
 ### Wireframes
 - https://imgur.com/gallery/S2GJtFD
@@ -66,7 +66,7 @@ Like Twitter with version control, with public/private/unpublished capabilities,
 
 ## Obstacles
 For this project I ran into several issues with Rails and Handlebars. Considering these are two new technologies to me it was expected that I would run into trouble, so I opened issue cues often:
-https://git.generalassemb.ly/ga-wdi-boston/full-stack-project/issues?q=is%3Aissue+author%3ASeanDonnellanWDI+is%3Aclosed
+https://git.generalassemb.ly/ga-wdi-boston/full-stack-project/issues?q=is%3Aissue+author%3Aseandonn-boston+is%3Aclosed
 Additionally, a major obstacle was wrapping my mind around my own concept. I revisited my ERD frequently and would constantly rediagram my plan. I believe this actually hindered my process because I was getting too far ahead of myself. Too often I would catch myself thinking of ideas which were unecessary to MVP, however I would diagram out my ERD just incase it would affect my Jots table. Occasionally it did, which then sidetracked my forward progress to MVP. Had I waited to redo my Jots table toward the end of my MVP development process, or thought harder about my idea while planning it, I would have saved myself a lot of time.
 
 ## Accomplishments
