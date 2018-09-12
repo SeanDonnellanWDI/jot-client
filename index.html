@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Jot</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Jot</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse">
+            <!-- External User Auth -->
+            <ul class="nav navbar-nav navbar-right user-auth user-auth-external" id="userAuthExternal">
+              <li class="dropdown" id="signUpSection">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Join <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <form class="navbar-form" id="signUpForm">
+                      <!-- Sign Up Email Input -->
+                      <div class="form-group">
+                        <label for="signUpEmailInput">Email address</label>
+                        <input type="email" class="form-control" id="signUpEmailInput" name="credentials[email]" placeholder="Email" required>
+                      </div>
+                      <!-- Sign Up Password Input -->
+                      <div class="form-group">
+                        <label for="signUpPassword">Password</label>
+                        <input type="password" class="form-control" id="signUpPassword" name="credentials[password]" placeholder="Password" required>
+                      </div>
+                      <!-- Sign Up Confirm Password Input -->
+                      <div class="form-group">
+                        <label for="signUpPasswordConfirm">Confirm Password</label>
+                        <input type="password" class="form-control" id="signUpPasswordConfirm" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+                      </div>
+                      <!-- Sign Up Submit -->
+                      <button class="btn btn-default" type="submit">Sign Up</button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown login-dropdown" id="signInSection">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <form class="navbar-form" id="signInForm">
+                      <div class="form-group">
+                        <!-- Sign In Email Input -->
+                        <label for="signInEmailInput">Email address</label>
+                        <input type="email" class="form-control" id="signInEmailInput" name="credentials[email]" placeholder="Email" required>
+                      </div>
+                      <div class="form-group">
+                        <!-- Sign In Password Input -->
+                        <label for="signInPassword">Password</label>
+                        <input type="password" class="form-control" id="signInPassword" name="credentials[password]" placeholder="Password" required>
+                      </div>
+                      <!-- Sign In Submit -->
+                      <button class="btn btn-default" type="submit">Sign In</button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!-- Internal User Auth -->
+            <ul class="nav navbar-nav navbar-right user-auth user-auth-internal hidden" id="userAuthInternal">
+              <li class="dropdown join-dropdown" id="changePassSection">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <form class="navbar-form" id="changePasswordForm">
+                      <div class="form-group">
+                        <!-- Change Password Old Input -->
+                        <label for="changePasswordOld">Old Password</label>
+                        <input type="password" class="form-control" id="changePasswordOld" name="passwords[old]" placeholder="Old Password" required>
+                      </div>
+                      <div class="form-group">
+                        <!-- Change Password New Input -->
+                        <label for="changePasswordNew">New Password</label>
+                        <input type="password" class="form-control" id="changePasswordNew" name="passwords[new]" placeholder="New Password" required>
+                      </div>
+                      <!-- Change Password Submit -->
+                      <button class="btn btn-default" type="submit">Change Password</button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+              <li id="signOutSection">
+                <form class="navbar-form navbar-left" id="signOutForm">
+                  <button class="btn btn-default" id="signOutBtn" type="submit">Sign Out</button>
+                </form>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1>Jot</h1>
+            <p>Jot is currently under construction at this time - not all features are functional yet.</p>
+            <hr>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div id="userFacingMessages"></div>
+          </div>
+          <div class="col-xs-12">
+            <hr>
+          </div>
+        </div>
+        <!-- Jot Section -->
+        <div class="row jot-section hidden" id="jotSection">
+          <!-- New Jot -->
+          <div class="col-xs-12 col-sm-6" id="jotForm">
+            <h2>Write a Jot</h2>
+            <form id="createNewJot">
+              <div class="form-group">
+                <!-- New Jot Name Input -->
+                <label for="newJotName">Jot Name</label>
+                <input type="text" class="form-control" id="newJotName" name="jot[name]" placeholder="Jot Name" required>
+              </div>
+              <div class="form-group">
+                <!-- New Jot Content Input -->
+                <label for="newJotContent">Jot Content</label>
+                <input type="text" class="form-control" id="newJotContent" name="jot[content]" placeholder="Got a thought? Write a jot!" required>
+              </div>
+              <!-- Sign Up Submit -->
+              <button class="btn btn-default" type="submit">Create Jot</button>
+            </form>
+          </div>
+
+          <!-- List of Jots -->
+          <div class="col-xs-12 col-sm-6">
+            <h2>Read your Jots!</h2>
+            <button class="btn btn-default" id="indexJotsButton">List Your Jots</button>
+            <div class="list-of-jots" id="listOfJots"></div>
+          </div>
+          <div class="col-xs-12">
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 description">
+            <h1>Q&A</h1>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+                <h3>What is Jot</h3>
+                <p>Jot is a note taking app. Jot allows users to write down their ideas and easily organize them later via a drag and drop system.</p>
+                <br>
+                <h3>Who is the target audience?</h3>
+                <p>Jot was originally created for songwriters in mind. Rearranging lyrics and verses using copy and paste methods can be annoying, so a simple drag and drop solution is much easier. Additionally, Jot is a fantastic list maker, perfect for busy users who simply need to write down all their to-do list tasks and order them later.</p>
+                <br>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <h3>How does Jot work?</h3>
+                <p>Currently, a users can sign up (Join) then sign in (Login) using real or fake credentials, or users can use these provided example credentials to Login:</p>
+                <p><code>u: jot@example.com</code>
+                <br>
+                <code>p: jot</code></p>
+                <p>When a user successfully signs in, that user can change their password (please do not edit the example account password) or sign out. A signed-in user will also see the "Write a jot" section (left) where they can create new jots, and they can see the "Read your jots" section (right) where they can read, edit, or delete their existing jots.</p>
+                <p>Jot often prompts the user with success and error messages as well which informs the user if something has or has not happened, such as successfully creating a jot, or failing to sign up because the username was already taken. These user messages appear above the "write a jot" section.</p>
+                <br>
+                <h3>What's next for Jot?</h3>
+                <p>Jot is still in its infancy right now and new challenges are being tackled everyday. The next features to be developed are the drag and drop feature, jot-grouping feature, social sharing platform, and the final UX style guide.</p>
+                <br>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
